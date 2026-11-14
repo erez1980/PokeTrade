@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-11-14T18:33:52.521Z",
+  "catalogVersion": "2026-11-14.1bf01308",
+  "scoringVersion": "1.0.0",
+  "status": "ok",
+  "sources": [
+    {
+      "id": "pogoapi:released_pokemon",
+      "retrievedAt": "2026-11-14T18:03:23.812Z",
+      "lastModified": "Sat, 31 Jan 2026 18:03:43 GMT",
+      "sha256": "740d9a03ed6853023e89912cc31b2c3fa513582b091ee301cdf31a35794cc58d"
+    },
+    {
+      "id": "pogoapi:shiny_pokemon",
+      "retrievedAt": "2026-11-14T18:03:23.953Z",
+      "lastModified": "Sat, 31 Jan 2026 18:03:43 GMT",
+      "sha256": "6697d100d4f941c1ddf542f2c3468d94a801ee93b2af621ca37a59a415fa62d4"
+    },
+    {
+      "id": "pogoapi:pokemon_rarity",
+      "retrievedAt": "2026-11-14T18:03:24.099Z",
+      "lastModified": "Tue, 11 Nov 2025 18:38:30 GMT",
+      "sha256": "257f0f9e27b0d763bf85bf91c864df86fa37e1ebd3000e92713c7398bb99a874"
+    },
+    {
+      "id": "pogoapi:nesting_pokemon",
+      "retrievedAt": "2026-11-14T18:03:24.237Z",
+      "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
+      "sha256": "c67724ab7274ed3bb12653ddac92288d20e24becad40bae395819dbe365296f8"
+    },
+    {
+      "id": "pogoapi:shadow_pokemon",
+      "retrievedAt": "2026-11-14T18:03:24.372Z",
+      "lastModified": "Sun, 25 Sep 2022 11:15:21 GMT",
+      "sha256": "5e8f7aa3c731678fd03c20a2f08b60b77e592f19891c4dabe2e59446b1523b8d"
+    },
+    {
+      "id": "pogoapi:raid_exclusive_pokemon",
+      "retrievedAt": "2026-11-14T18:03:24.519Z",
+      "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
+      "sha256": "102449052354180e6c14c892d487992ff7948aac34b4caf53310fce6bcd53072"
+    },
+    {
+      "id": "pogoapi:research_task_exclusive_pokemon",
+      "retrievedAt": "2026-11-14T18:03:24.638Z",
+      "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
+      "sha256": "f8dda68a648f6b2636cd1f4b89a43f1ad23bce991728ec44381a772a29722446"
+    },
+    {
+      "id": "pogoapi:photobomb_exclusive_pokemon",
+      "retrievedAt": "2026-11-14T18:03:24.769Z",
+      "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
+      "sha256": "4f3597dbc9dd9ff9f8cb74a99a486f41748d6c4a82e1047d01948da3009594e5"
+    },
+    {
+      "id": "pogoapi:baby_pokemon",
+      "retrievedAt": "2026-11-14T18:03:24.893Z",
+      "lastModified": "Mon, 19 Sep 2022 11:51:22 GMT",
+      "sha256": "addc080993ab5c79064da3b631b6e13a03b6d87db56fa4faa37d271decb6fd7a"
+    },
+    {
+      "id": "pogoapi:alolan_pokemon",
+      "retrievedAt": "2026-11-14T18:03:25.033Z",
+      "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
+      "sha256": "9e0ff4f19ea16e7a97ce6393f1318459be4f238fc39b7f3f0615d0d301b2ad8f"
+    },
+    {
+      "id": "pogoapi:galarian_pokemon",
+      "retrievedAt": "2026-11-14T18:03:25.167Z",
+      "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
+      "sha256": "ed65f0883d74bf4415d6019a905f71fdd050ab7ea32ed3ac95cbb013273a8d4a"
+    },
+    {
+      "id": "pokemon-go-api",
+      "retrievedAt": "2026-11-14T18:03:25.549Z",
+      "lastModified": "Sat, 14 Nov 2026 13:24:54 GMT",
+      "sha256": "8aa9f91ce97726fffe0058c76b95f03621060034abaf32098519b447c4dff520"
+    },
+    {
+      "id": "watwowmap-masterfile",
+      "retrievedAt": "2026-11-14T18:03:25.770Z",
+      "sha256": "2348d79cb1383ca0dd7213e67cec0e06832522e31a64848cacce214b3a2f32b8"
+    },
+    {
+      "id": "game-master",
+      "retrievedAt": "2026-11-14T18:03:26.073Z",
+      "sha256": "5c947ac64d1de8859bea1b3bf044609d74b6e8429d53f8cb1aa30a72a46dce84"
+    },
+    {
+      "id": "pogoapi",
+      "retrievedAt": "2026-11-14T18:03:23.812Z",
+      "lastModified": "Sat, 31 Jan 2026 18:03:43 GMT"
+    },
+    {
+      "id": "official-trading",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "official-remote-trading",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "official-max",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "official-help-center",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "curated-regionals",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "curated-shiny-rates",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "community-documentation",
+      "retrievedAt": "2026-11-14"
+    }
+  ],
+  "counts": {
+    "species": 1024,
+    "released": 940,
+    "unreleased": 84,
+    "forms": 1601,
+    "formsUnverified": 13,
+    "costumes": 294,
+    "shinyReleased": 863,
+    "dynamax": 62,
+    "gigantamax": 16,
+    "backgrounds": 246,
+    "backgroundsVerified": 0,
+    "verifiedCombos": 0
+  },
+  "missingArtwork": [],
+  "missingRarityEvidence": [
+    679,
+    680,
+    681,
+    701,
+    707,
+    764,
+    813,
+    814,
+    815,
+    816,
+    817,
+    818,
+    827,
+    828,
+    829,
+    830,
+    835,
+    836,
+    837,
+    838,
+    839,
+    840,
+    841,
+    842,
+    845,
+    850,
+    851,
+    852,
+    853,
+    866,
+    872,
+    873,
+    874,
+    885,
+    886,
+    887,
+    901,
+    917,
+    918,
+    932,
+    933,
+    934,
+    940,
+    941,
+    944,
+    945,
+    948,
+    949,
+    950,
+    965,
+    966,
+    969,
+    970,
+    971,
+    972,
+    978,
+    1011,
+    1012,
+    1013,
+    1019
+  ],
+  "invalidCombinations": [],
+  "ingestionErrors": [],
+  "needsReview": [],
+  "changes": {
+    "added": [],
+    "removed": [],
+    "newlyReleased": [],
+    "formsAdded": [],
+    "formsRetained": []
+  },
+  "rankings": {
+    "variants": 3221,
+    "ranked": 2689,
+    "unranked": 532,
+    "species": 940
+  }
+}

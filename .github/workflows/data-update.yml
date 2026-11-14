@@ -1,0 +1,27 @@
+name: Scheduled catalog update check
+# Weekly: fetch upstream sources, rebuild + validate the catalog, and open a pull request
+# for human review. Nothing is published without review; failed validation leaves the
+# committed catalog untouched.
+on:
+  schedule:
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run data:update
+      - run: npm test
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data/catalog-update
+          title: "Catalog update (automated, needs review)"
+          body: "Automated catalog rebuild. Review `public/data/report.json` (needsReview, changes) and `data/catalog/changelog.json` before merging."
+          commit-message: "data: catalog update"

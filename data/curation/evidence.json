@@ -1,0 +1,118 @@
+{
+  "_meta": {
+    "description": "Curated, source-attributed facts that upstream datasets do not provide. Every entry must name a source and a confidence level. Never add a fact without a source. See docs/DATA_SOURCES.md for the review process.",
+    "updated": "2026-11-14"
+  },
+  "sources": [
+    {
+      "id": "official-trading",
+      "name": "Pokémon GO Help Center – Trading Pokémon",
+      "url": "https://scopelyexplore.helpshift.com/hc/en/5-pokemon-go/faq/1143-trading-pokemon/",
+      "license": "Reference only (facts cited, text not reproduced)",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "official-remote-trading",
+      "name": "Pokémon GO Help Center – Trading Remotely",
+      "url": "https://scopelyexplore.helpshift.com/hc/en/5-pokemon-go/faq/861-trading-remotely/",
+      "license": "Reference only (facts cited, text not reproduced)",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "official-max",
+      "name": "Pokémon GO Help Center – What are Max Pokémon?",
+      "url": "https://scopelyexplore.helpshift.com/hc/en/5-pokemon-go/faq/1211-what-are-max-pokemon/",
+      "license": "Reference only (facts cited, text not reproduced)",
+      "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "official-help-center",
+      "name": "Pokémon GO Help Center (Team GO Rocket / Shadow Pokémon articles)",
+      "url": "https://scopelyexplore.helpshift.com/hc/en/5-pokemon-go/",
+      "license": "Reference only",
+      "retrievedAt": "2026-11-14",
+      "notes": "Shadow Pokémon cannot be traded; they must be purified first."
+    },
+    {
+      "id": "curated-regionals",
+      "name": "Community documentation of Pokémon GO regional exclusives (e.g. Bulbapedia, 'Regional Pokémon' in Pokémon GO)",
+      "url": "https://bulbapedia.bulbagarden.net/",
+      "license": "Facts only; Bulbapedia text is CC BY-NC-SA 2.5 and is not reproduced",
+      "retrievedAt": "2026-11-14",
+      "notes": "Long-standing regional exclusives only. Event-time global releases of regionals are not modelled."
+    },
+    {
+      "id": "curated-shiny-rates",
+      "name": "Community shiny-rate research (The Silph Road research archive; summarized on Bulbapedia 'Shiny Pokémon' in Pokémon GO)",
+      "url": "https://bulbapedia.bulbagarden.net/",
+      "license": "Facts only",
+      "retrievedAt": "2026-11-14",
+      "notes": "Rates are community estimates, not official odds. Used only to choose a rate category (full-odds vs boosted), never shown as a probability."
+    },
+    {
+      "id": "community-documentation",
+      "name": "Community documentation of trade behaviour for fused Pokémon",
+      "url": "https://bulbapedia.bulbagarden.net/",
+      "license": "Facts only",
+      "retrievedAt": "2026-11-14"
+    }
+  ],
+  "regionalExclusives": [
+    { "ids": [83], "region": { "en": "Asia", "he": "אסיה" } },
+    { "ids": [115], "region": { "en": "Australia", "he": "אוסטרליה" } },
+    { "ids": [122], "region": { "en": "Europe", "he": "אירופה" } },
+    { "ids": [128], "region": { "en": "North America", "he": "צפון אמריקה" } },
+    { "ids": [214], "region": { "en": "Central & South America", "he": "מרכז ודרום אמריקה" } },
+    { "ids": [222], "region": { "en": "Tropical regions", "he": "אזורים טרופיים" } },
+    { "ids": [313, 314], "region": { "en": "One hemisphere each", "he": "חצי כדור אחד בלבד" } },
+    { "ids": [324], "region": { "en": "South & Southeast Asia", "he": "דרום ודרום-מזרח אסיה" } },
+    { "ids": [335, 336], "region": { "en": "Split between world regions", "he": "מחולקים בין אזורי העולם" } },
+    { "ids": [337, 338], "region": { "en": "Eastern / Western hemisphere", "he": "חצי הכדור המזרחי / המערבי" } },
+    { "ids": [357], "region": { "en": "Africa & Mediterranean", "he": "אפריקה והים התיכון" } },
+    { "ids": [369], "region": { "en": "New Zealand & nearby islands", "he": "ניו זילנד והאיים הסמוכים" } },
+    { "ids": [417], "region": { "en": "Alaska, Canada & Russia", "he": "אלסקה, קנדה ורוסיה" } },
+    { "ids": [441], "region": { "en": "Southern hemisphere", "he": "חצי הכדור הדרומי" } },
+    { "ids": [455], "region": { "en": "Southeastern United States", "he": "דרום-מזרח ארצות הברית" } },
+    { "ids": [480], "region": { "en": "Asia-Pacific", "he": "אסיה והאוקיינוס השקט" } },
+    { "ids": [481], "region": { "en": "Europe, Middle East, Africa & India", "he": "אירופה, המזרח התיכון, אפריקה והודו" } },
+    { "ids": [482], "region": { "en": "The Americas & Greenland", "he": "אמריקה וגרינלנד" } },
+    { "ids": [511, 512], "region": { "en": "Asia-Pacific", "he": "אסיה והאוקיינוס השקט" } },
+    { "ids": [513, 514], "region": { "en": "Europe, Middle East, Africa & India", "he": "אירופה, המזרח התיכון, אפריקה והודו" } },
+    { "ids": [515, 516], "region": { "en": "The Americas", "he": "אמריקה" } },
+    { "ids": [538, 539], "region": { "en": "Split between world regions", "he": "מחולקים בין אזורי העולם" } },
+    { "ids": [556], "region": { "en": "Latin America", "he": "אמריקה הלטינית" } },
+    { "ids": [561], "region": { "en": "Egypt & Greece area", "he": "אזור מצרים ויוון" } },
+    { "ids": [626], "region": { "en": "New York area", "he": "אזור ניו יורק" } },
+    { "ids": [631, 632], "region": { "en": "Split between hemispheres", "he": "מחולקים בין חצאי כדור" } },
+    { "ids": [701], "region": { "en": "Mexico", "he": "מקסיקו" } },
+    { "ids": [707], "region": { "en": "France", "he": "צרפת" } },
+    { "ids": [741], "region": { "en": "Form depends on world region", "he": "הצורה תלויה באזור בעולם" } },
+    { "ids": [764], "region": { "en": "Hawaii", "he": "הוואי" } }
+  ],
+  "tradableMythicals": {
+    "ids": [808, 809],
+    "sourceId": "community-documentation",
+    "note": "Meltan and Melmetal are Mythical but can be traded (community-documented exception to the official 'Mythical Pokémon cannot be traded' rule)."
+  },
+  "releasedOverrides": {
+    "add": [],
+    "remove": [],
+    "note": "Use to correct the released-species list between upstream updates. Each change must reference an official announcement in the commit message."
+  },
+  "releasedForms": {
+    "ids": [
+      "GROWLITHE_HISUIAN", "ARCANINE_HISUIAN", "VOLTORB_HISUIAN", "ELECTRODE_HISUIAN",
+      "TYPHLOSION_HISUIAN", "QWILFISH_HISUIAN", "SNEASEL_HISUIAN", "SAMUROTT_HISUIAN",
+      "LILLIGANT_HISUIAN", "ZORUA_HISUIAN", "ZOROARK_HISUIAN", "BRAVIARY_HISUIAN",
+      "SLIGGOO_HISUIAN", "GOODRA_HISUIAN", "AVALUGG_HISUIAN", "DECIDUEYE_HISUIAN",
+      "WOOPER_PALDEA"
+    ],
+    "sourceId": "community-documentation",
+    "note": "Hisuian/Paldean forms confirmed as released in Pokémon GO. Other Hisuian/Paldean forms in the game files stay 'unverified' until added here."
+  },
+  "verifiedCombos": [],
+  "backgroundLinks": {
+    "note": "Map background id -> species ids on which that background was verifiably distributed. Empty until curated; unverified links never get a rarity score.",
+    "links": {}
+  }
+}
