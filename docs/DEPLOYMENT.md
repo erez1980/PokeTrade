@@ -4,8 +4,8 @@ The site is a fully static export (`out/`). No server, database or secrets are n
 
 ## GitHub Pages (default)
 
-`.github/workflows/deploy-pages.yml` builds with `NEXT_PUBLIC_BASE_PATH=/<repo-name>` on every push to `main` and deploys to Pages.
-One-time setup: repository **Settings → Pages → Source: GitHub Actions**.
+`.github/workflows/deploy-pages.yml` builds with `NEXT_PUBLIC_BASE_PATH=/<repo-name>` on every push to `main` and publishes `out/` to the `gh-pages` branch.
+Pages setting: **Settings → Pages → Source: Deploy from a branch → `gh-pages` / `(root)`**.
 
 ## Any static host (Netlify, Cloudflare Pages, Vercel static, S3+CloudFront, nginx)
 
