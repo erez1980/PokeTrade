@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-14T18:03:26.073Z",
+  "generatedAt": "2026-11-19T15:09:33.747Z",
   "entries": [
     {
       "id": "pogoapi:released_pokemon",
       "url": "https://pogoapi.net/api/v1/released_pokemon.json",
       "file": "pogoapi-released_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:23.812Z",
+      "retrievedAt": "2026-11-19T15:09:30.368Z",
       "lastModified": "Sat, 31 Jan 2026 18:03:43 GMT",
       "sha256": "740d9a03ed6853023e89912cc31b2c3fa513582b091ee301cdf31a35794cc58d",
       "bytes": 61247
@@ -14,7 +14,7 @@
       "id": "pogoapi:shiny_pokemon",
       "url": "https://pogoapi.net/api/v1/shiny_pokemon.json",
       "file": "pogoapi-shiny_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:23.953Z",
+      "retrievedAt": "2026-11-19T15:09:30.532Z",
       "lastModified": "Sat, 31 Jan 2026 18:03:43 GMT",
       "sha256": "6697d100d4f941c1ddf542f2c3468d94a801ee93b2af621ca37a59a415fa62d4",
       "bytes": 214772
@@ -23,7 +23,7 @@
       "id": "pogoapi:pokemon_rarity",
       "url": "https://pogoapi.net/api/v1/pokemon_rarity.json",
       "file": "pogoapi-pokemon_rarity.json",
-      "retrievedAt": "2026-11-14T18:03:24.099Z",
+      "retrievedAt": "2026-11-19T15:09:30.697Z",
       "lastModified": "Tue, 11 Nov 2025 18:38:30 GMT",
       "sha256": "257f0f9e27b0d763bf85bf91c864df86fa37e1ebd3000e92713c7398bb99a874",
       "bytes": 219907
@@ -32,7 +32,7 @@
       "id": "pogoapi:nesting_pokemon",
       "url": "https://pogoapi.net/api/v1/nesting_pokemon.json",
       "file": "pogoapi-nesting_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:24.237Z",
+      "retrievedAt": "2026-11-19T15:09:30.854Z",
       "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
       "sha256": "c67724ab7274ed3bb12653ddac92288d20e24becad40bae395819dbe365296f8",
       "bytes": 6468
@@ -41,7 +41,7 @@
       "id": "pogoapi:shadow_pokemon",
       "url": "https://pogoapi.net/api/v1/shadow_pokemon.json",
       "file": "pogoapi-shadow_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:24.372Z",
+      "retrievedAt": "2026-11-19T15:09:31.003Z",
       "lastModified": "Sun, 25 Sep 2022 11:15:21 GMT",
       "sha256": "5e8f7aa3c731678fd03c20a2f08b60b77e592f19891c4dabe2e59446b1523b8d",
       "bytes": 15891
@@ -50,7 +50,7 @@
       "id": "pogoapi:raid_exclusive_pokemon",
       "url": "https://pogoapi.net/api/v1/raid_exclusive_pokemon.json",
       "file": "pogoapi-raid_exclusive_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:24.519Z",
+      "retrievedAt": "2026-11-19T15:09:31.149Z",
       "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
       "sha256": "102449052354180e6c14c892d487992ff7948aac34b4caf53310fce6bcd53072",
       "bytes": 3328
@@ -59,7 +59,7 @@
       "id": "pogoapi:research_task_exclusive_pokemon",
       "url": "https://pogoapi.net/api/v1/research_task_exclusive_pokemon.json",
       "file": "pogoapi-research_task_exclusive_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:24.638Z",
+      "retrievedAt": "2026-11-19T15:09:31.290Z",
       "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
       "sha256": "f8dda68a648f6b2636cd1f4b89a43f1ad23bce991728ec44381a772a29722446",
       "bytes": 417
@@ -68,7 +68,7 @@
       "id": "pogoapi:photobomb_exclusive_pokemon",
       "url": "https://pogoapi.net/api/v1/photobomb_exclusive_pokemon.json",
       "file": "pogoapi-photobomb_exclusive_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:24.769Z",
+      "retrievedAt": "2026-11-19T15:09:31.452Z",
       "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
       "sha256": "4f3597dbc9dd9ff9f8cb74a99a486f41748d6c4a82e1047d01948da3009594e5",
       "bytes": 87
@@ -77,7 +77,7 @@
       "id": "pogoapi:baby_pokemon",
       "url": "https://pogoapi.net/api/v1/baby_pokemon.json",
       "file": "pogoapi-baby_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:24.893Z",
+      "retrievedAt": "2026-11-19T15:09:31.629Z",
       "lastModified": "Mon, 19 Sep 2022 11:51:22 GMT",
       "sha256": "addc080993ab5c79064da3b631b6e13a03b6d87db56fa4faa37d271decb6fd7a",
       "bytes": 1508
@@ -86,7 +86,7 @@
       "id": "pogoapi:alolan_pokemon",
       "url": "https://pogoapi.net/api/v1/alolan_pokemon.json",
       "file": "pogoapi-alolan_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:25.033Z",
+      "retrievedAt": "2026-11-19T15:09:31.761Z",
       "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
       "sha256": "9e0ff4f19ea16e7a97ce6393f1318459be4f238fc39b7f3f0615d0d301b2ad8f",
       "bytes": 1140
@@ -95,7 +95,7 @@
       "id": "pogoapi:galarian_pokemon",
       "url": "https://pogoapi.net/api/v1/galarian_pokemon.json",
       "file": "pogoapi-galarian_pokemon.json",
-      "retrievedAt": "2026-11-14T18:03:25.167Z",
+      "retrievedAt": "2026-11-19T15:09:31.923Z",
       "lastModified": "Mon, 19 Sep 2022 11:51:23 GMT",
       "sha256": "ed65f0883d74bf4415d6019a905f71fdd050ab7ea32ed3ac95cbb013273a8d4a",
       "bytes": 937
@@ -104,24 +104,24 @@
       "id": "pokemon-go-api",
       "url": "https://pokemon-go-api.github.io/pokemon-go-api/api/pokedex.json",
       "file": "pokemon-go-api-pokedex.json",
-      "retrievedAt": "2026-11-14T18:03:25.549Z",
-      "lastModified": "Sat, 14 Nov 2026 13:24:54 GMT",
-      "sha256": "8aa9f91ce97726fffe0058c76b95f03621060034abaf32098519b447c4dff520",
-      "bytes": 14907021
+      "retrievedAt": "2026-11-19T15:09:32.853Z",
+      "lastModified": "Tue, 17 Nov 2026 01:51:04 GMT",
+      "sha256": "a341a5fa0e6f7ddb672f56d99f916c723c09842c6680bc56f9756bc2ab67dc47",
+      "bytes": 14908274
     },
     {
       "id": "watwowmap-masterfile",
       "url": "https://raw.githubusercontent.com/WatWowMap/Masterfile-Generator/master/master-latest.json",
       "file": "watwowmap-master-latest.json",
-      "retrievedAt": "2026-11-14T18:03:25.770Z",
-      "sha256": "2348d79cb1383ca0dd7213e67cec0e06832522e31a64848cacce214b3a2f32b8",
-      "bytes": 1254251
+      "retrievedAt": "2026-11-19T15:09:33.113Z",
+      "sha256": "a2e3ae81122e8b5d791e40a4334e6566f9e7973b2fe4d11d6e866cfea05b3c19",
+      "bytes": 1255345
     },
     {
       "id": "game-master",
       "url": "https://raw.githubusercontent.com/PokeMiners/game_masters/master/latest/latest.json",
       "file": "pokeminers-game-master.json",
-      "retrievedAt": "2026-11-14T18:03:26.073Z",
+      "retrievedAt": "2026-11-19T15:09:33.747Z",
       "sha256": "5c947ac64d1de8859bea1b3bf044609d74b6e8429d53f8cb1aa30a72a46dce84",
       "bytes": 19522222
     }
