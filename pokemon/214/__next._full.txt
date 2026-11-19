@@ -1,0 +1,33 @@
+1:"$Sreact.fragment"
+2:"/PokeTrade/_next/static/chunks/2gwhssou-snd-.js"
+3:"/PokeTrade/_next/static/chunks/2-d1-kfsm88-n.js"
+4:I[44636,["$2","$3"],"Providers"]
+5:I[49830,["$2","$3"],"AppShell"]
+6:I[39756,["$2","$3"],"default"]
+7:I[37457,["$2","$3"],"default"]
+8:I[22016,["$2","$3"],""]
+e:I[97367,["$2","$3"],"OutletBoundary"]
+f:"$Sreact.suspense"
+11:"ViewportBoundary"
+12:I[97367,["$2","$3"],"$11"]
+14:"MetadataBoundary"
+15:I[97367,["$2","$3"],"$14"]
+17:I[68027,["$2","$3"],"default",1]
+:HL["/PokeTrade/_next/static/chunks/0wruoxee9nxzm.css","style"]
+:HL["/PokeTrade/_next/static/media/996b4d9a15bee5b0-s.p.0kf5m0zv7sxld.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/PokeTrade/_next/static/media/e683b1ee568be024-s.p.0sv86lbjkn8rn.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+a:X
+c:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":["$Ld",[["$","script","script-0",{"src":"/PokeTrade/_next/static/chunks/1hk03t_s80t-8.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/PokeTrade/_next/static/chunks/0jf3rbm6q_1ca.js","async":true,"nonce":"$undefined"}]],["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}],"p":false,"v":null}}]]
+b:[["children",{"s":{"n":"id","t":"d","k":"214","s":[]},"h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$a"},"c":"$Qc"}]]
+9:[["children",{"s":"pokemon","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$a"},"c":"$Qb"}]]
+0:{"P":null,"c":["","pokemon","214",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/PokeTrade/_next/static/chunks/0wruoxee9nxzm.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/PokeTrade/_next/static/chunks/2gwhssou-snd-.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/PokeTrade/_next/static/chunks/2-d1-kfsm88-n.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"he","dir":"rtl","className":"o1ZW7a_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"httpEquiv":"Content-Security-Policy","content":"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://raw.githubusercontent.com; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self'; manifest-src 'self'; upgrade-insecure-requests"}],["$","meta",null,{"httpEquiv":"X-Content-Type-Options","content":"nosniff"}],["$","meta",null,{"name":"robots","content":"index,follow"}]]}],["$","body",null,{"className":"font-sans antialiased","children":["$","$L4",null,{"children":["$","$L5",null,{"children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"card mx-auto mt-10 max-w-md p-8 text-center","children":[["$","p",null,{"className":"text-5xl","aria-hidden":true,"children":"🧭"}],["$","h1",null,{"className":"mt-2 text-xl font-black","children":"העמוד לא נמצא · Page not found"}],["$","$L8",null,{"href":"/","className":"btn btn-primary mt-4","children":"PokéTrade"}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}]]}],"p":false,"v":null},"c":"$Q9"},"h":{"r":["$","$1","h",{"children":[null,["$","$L12",null,{"children":"$L13"}],["$","$L15",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$f",null,{"name":"Next.Metadata","children":"$L16"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":false,"v":null}},"m":"$undefined","G":["$17",[["$","link","0",{"rel":"stylesheet","href":"/PokeTrade/_next/static/chunks/0wruoxee9nxzm.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"c6JF0uSLvWZw3y1nzMeEV"}
+18:"/PokeTrade/_next/static/chunks/1hk03t_s80t-8.js"
+19:"/PokeTrade/_next/static/chunks/0jf3rbm6q_1ca.js"
+1a:"PokemonDetailsScreen"
+1b:I[61558,["$2","$3","$18","$19"],"$1a"]
+a:C
+d:["$","$L1b",null,{"id":214}]
+13:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#7c3aed"}]]
+1c:I[27201,["$2","$3"],"IconMark"]
+10:null
+16:[["$","title","0",{"children":"הרקרוס (Heracross) · PokéTrade"}],["$","meta","1",{"name":"description","content":"השוואת נדירות של פוקימונים ב-Pokémon GO – פרויקט מעריצים עצמאי. Compare the rarity of Pokémon GO variants."}],["$","meta","2",{"name":"application-name","content":"PokéTrade"}],["$","link","3",{"rel":"manifest","href":"/PokeTrade/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","4",{"name":"referrer","content":"no-referrer"}],["$","meta","5",{"name":"format-detection","content":"telephone=no"}],["$","link","6",{"rel":"icon","href":"/PokeTrade/icon.svg"}],["$","link","7",{"rel":"apple-touch-icon","href":"/PokeTrade/icon-192.png"}],["$","$L1c","8",{}]]

@@ -1,0 +1,25 @@
+1:"$Sreact.fragment"
+2:"/PokeTrade/_next/static/chunks/2gwhssou-snd-.js"
+3:"/PokeTrade/_next/static/chunks/2-d1-kfsm88-n.js"
+4:I[44636,["$2","$3"],"Providers"]
+5:I[49830,["$2","$3"],"AppShell"]
+6:I[39756,["$2","$3"],"default"]
+7:I[37457,["$2","$3"],"default"]
+8:I[22016,["$2","$3"],""]
+c:I[97367,["$2","$3"],"OutletBoundary"]
+d:"$Sreact.suspense"
+f:"ViewportBoundary"
+10:I[97367,["$2","$3"],"$f"]
+12:"MetadataBoundary"
+13:I[97367,["$2","$3"],"$12"]
+15:I[68027,["$2","$3"],"default",1]
+:HL["/PokeTrade/_next/static/chunks/0wruoxee9nxzm.css","style"]
+a:X
+b:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","div",null,{"className":"card mx-auto mt-10 max-w-md p-8 text-center","children":[["$","p",null,{"className":"text-5xl","aria-hidden":true,"children":"🧭"}],["$","h1",null,{"className":"mt-2 text-xl font-black","children":"העמוד לא נמצא · Page not found"}],["$","$L8",null,{"href":"/","className":"btn btn-primary mt-4","children":"PokéTrade"}]]}],null,["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]]}],"p":false,"v":null}}]]
+9:[["children",{"s":"/_not-found","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$a"},"c":"$Qb"}]]
+0:{"P":null,"c":["","_not-found",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/PokeTrade/_next/static/chunks/0wruoxee9nxzm.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/PokeTrade/_next/static/chunks/2gwhssou-snd-.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/PokeTrade/_next/static/chunks/2-d1-kfsm88-n.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"he","dir":"rtl","className":"o1ZW7a_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"httpEquiv":"Content-Security-Policy","content":"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://raw.githubusercontent.com; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self'; manifest-src 'self'; upgrade-insecure-requests"}],["$","meta",null,{"httpEquiv":"X-Content-Type-Options","content":"nosniff"}],["$","meta",null,{"name":"robots","content":"index,follow"}]]}],["$","body",null,{"className":"font-sans antialiased","children":["$","$L4",null,{"children":["$","$L5",null,{"children":["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"card mx-auto mt-10 max-w-md p-8 text-center","children":[["$","p",null,{"className":"text-5xl","aria-hidden":true,"children":"🧭"}],["$","h1",null,{"className":"mt-2 text-xl font-black","children":"העמוד לא נמצא · Page not found"}],["$","$L8",null,{"href":"/","className":"btn btn-primary mt-4","children":"PokéTrade"}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}]]}],"p":false,"v":null},"c":"$Q9"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L10",null,{"children":"$L11"}],["$","$L13",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$d",null,{"name":"Next.Metadata","children":"$L14"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":false,"v":null}},"m":"$undefined","G":["$15",[["$","link","0",{"rel":"stylesheet","href":"/PokeTrade/_next/static/chunks/0wruoxee9nxzm.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"c6JF0uSLvWZw3y1nzMeEV"}
+a:C
+11:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#7c3aed"}]]
+16:I[27201,["$2","$3"],"IconMark"]
+e:null
+14:[["$","title","0",{"children":"PokéTrade – מי יותר נדיר?"}],["$","meta","1",{"name":"description","content":"השוואת נדירות של פוקימונים ב-Pokémon GO – פרויקט מעריצים עצמאי. Compare the rarity of Pokémon GO variants."}],["$","meta","2",{"name":"application-name","content":"PokéTrade"}],["$","link","3",{"rel":"manifest","href":"/PokeTrade/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","4",{"name":"referrer","content":"no-referrer"}],["$","meta","5",{"name":"format-detection","content":"telephone=no"}],["$","link","6",{"rel":"icon","href":"/PokeTrade/icon.svg"}],["$","link","7",{"rel":"apple-touch-icon","href":"/PokeTrade/icon-192.png"}],["$","$L16","8",{}]]
