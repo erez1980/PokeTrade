@@ -8,6 +8,8 @@
 | [PokeMiners game_masters](https://github.com/PokeMiners/game_masters) | Max-battle (Dynamax/Gigantamax) settings, size bounds, location cards, tradability | Decoded game master © Niantic; factual parameters only | |
 | Official Pokémon GO Help Center (trading, remote trading, Max Pokémon) | Trade rules, Gigantamax special trade, Max keep-one rule | Facts cited, text not reproduced | URLs in `data/curation/evidence.json` |
 | Community documentation (Bulbapedia, Silph Road research archive) | Regional exclusives, shiny-rate categories, fused-form trade rule, Meltan/Melmetal trade exception, released Hisuian/Paldean forms | Facts only (Bulbapedia text is CC BY-NC-SA, not reproduced) | Confidence ≤ medium |
+| Official pokemongo.com posts, LeekDuck (incl. shiny checklist data), Serebii, Dittobase, Pokémon GO Hub | Background → Pokémon links, costume Shiny status (`evidenceRecords`, `backgroundLinks`, `formShiny` in `data/curation/evidence.json`) | Facts only, each with URL | Researched 2026-11-19; in-person backgrounds cross-checked by 2 sources |
+| [PokeMiners pogo_assets](https://github.com/PokeMiners/pogo_assets) | Background pictures (hot-linked) | Game assets © Niantic/TPC | 236/246 available |
 | [PokéAPI sprites](https://github.com/PokeAPI/sprites) | Official artwork (hot-linked) | Repo CC0-style; **artwork © Nintendo/Creatures/GAME FREAK/TPC** | Not redistributed; loaded from raw.githubusercontent.com |
 | [pokemon-go-api/assets](https://github.com/pokemon-go-api/assets) | Form/costume icons (hot-linked) | Game assets © Niantic/TPC | Not redistributed |
 

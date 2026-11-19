@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-19T14:32:36.107Z",
-  "catalogVersion": "2026-11-19.1bf01308",
+  "generatedAt": "2026-11-19T14:44:06.641Z",
+  "catalogVersion": "2026-11-19.62898785",
   "scoringVersion": "1.0.0",
   "status": "ok",
   "sources": [
@@ -118,6 +118,30 @@
     {
       "id": "community-documentation",
       "retrievedAt": "2026-11-14"
+    },
+    {
+      "id": "official-pokemongo",
+      "retrievedAt": "2026-11-19"
+    },
+    {
+      "id": "leekduck",
+      "retrievedAt": "2026-11-19"
+    },
+    {
+      "id": "serebii",
+      "retrievedAt": "2026-11-19"
+    },
+    {
+      "id": "dittobase",
+      "retrievedAt": "2026-11-19"
+    },
+    {
+      "id": "pokemongohub",
+      "retrievedAt": "2026-11-19"
+    },
+    {
+      "id": "other-press",
+      "retrievedAt": "2026-11-19"
     }
   ],
   "counts": {
@@ -131,7 +155,7 @@
     "dynamax": 62,
     "gigantamax": 16,
     "backgrounds": 246,
-    "backgroundsVerified": 0,
+    "backgroundsVerified": 84,
     "verifiedCombos": 0
   },
   "missingArtwork": [],
@@ -199,7 +223,9 @@
   ],
   "invalidCombinations": [],
   "ingestionErrors": [],
-  "needsReview": [],
+  "needsReview": [
+    "form URSALUNA_C_HALLOWEEN_2025: curated shiny but species shiny not released upstream – ignored"
+  ],
   "changes": {
     "added": [],
     "removed": [],
@@ -208,9 +234,9 @@
     "formsRetained": []
   },
   "rankings": {
-    "variants": 3221,
-    "ranked": 2689,
-    "unranked": 532,
+    "variants": 3587,
+    "ranked": 3336,
+    "unranked": 251,
     "species": 940
   }
 }

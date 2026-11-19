@@ -45,7 +45,7 @@ test.describe("compare", () => {
   });
 
   test("unverified combinations show an estimated range, never an official score", async ({ page }) => {
-    await page.goto("/?a=" + encodeURIComponent("25|PIKACHU_C_HOLIDAY_2016|S||||||") + "&b=" + encodeURIComponent("16|PIDGEY_NORMAL|||||||"));
+    await page.goto("/?a=" + encodeURIComponent("25|PIKACHU_COPY_2019|S||||||") + "&b=" + encodeURIComponent("16|PIDGEY_NORMAL|||||||"));
     await page.getByRole("button", { name: "השוואה!" }).click();
     await expect(page.getByText("טווח משוער · לא מאומת").first()).toBeVisible();
     await expect(page.locator("#result-title")).toContainText("(הערכה)");
@@ -139,7 +139,7 @@ test.describe("rankings, pokédex, details", () => {
     await page.getByRole("button", { name: "גיגנטמקס" }).click();
     await expect(page.locator("ol > li").first()).toContainText("גיגנטמקס");
     await page.getByRole("button", { name: "רקעים מיוחדים" }).click();
-    await expect(page.getByText("עדיין לא אימתנו רקעים מיוחדים")).toBeVisible();
+    await expect(page.locator("ol > li").first().locator('img[src*="LocationCards"]')).toBeVisible();
     await page.getByRole("tab", { name: "לפי סוג פוקימון" }).click();
     await expect(page.getByRole("heading", { name: /לא מדורג/ })).toHaveCount(0);
   });

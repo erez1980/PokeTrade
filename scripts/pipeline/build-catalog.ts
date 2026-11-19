@@ -303,6 +303,21 @@ function main() {
     });
   }
 
+  // ---------- Curated Shiny status of costume / event forms ----------
+  const formShiny: Record<string, { shiny: boolean; evidenceId: string }> = curatedEvidence.formShiny?.forms ?? {};
+  for (const sp of species) {
+    for (const f of sp.forms) {
+      const c = formShiny[f.id];
+      if (!c || f.kind === "normal") continue;
+      if (c.shiny && !sp.flags.shinyReleased) {
+        needsReview.push(`form ${f.id}: curated shiny but species shiny not released upstream – ignored`);
+        continue;
+      }
+      f.shiny = c.shiny ? "yes" : "no";
+      f.shinyEvidenceId = c.evidenceId;
+    }
+  }
+
   // ---------- Carry forward (never silently erase) ----------
   const formsRetained: string[] = [];
   if (previous) {
@@ -342,6 +357,7 @@ function main() {
   ];
   // Curated, source-backed evidence records (research results) – see data/curation/evidence.json.
   for (const r of curatedEvidence.evidenceRecords ?? []) evidence.push(r);
+  for (const sp of species) for (const f of sp.forms) if (f.shinyEvidenceId && !evidence.some((e) => e.id === f.shinyEvidenceId)) errors.push(`form ${f.id} references unknown evidence ${f.shinyEvidenceId}`);
   for (const b of backgrounds) for (const id of b.evidenceIds ?? []) if (!evidence.some((e) => e.id === id)) errors.push(`background ${b.id} references unknown evidence ${id}`);
   for (const c of curatedEvidence.verifiedCombos) {
     if (!evidence.some((e) => e.id === c.evidenceId)) errors.push(`verifiedCombo references unknown evidence ${c.evidenceId}`);

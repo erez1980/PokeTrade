@@ -9,8 +9,8 @@ import type { ConfidenceLevel } from "../catalog/schema";
  * counts (prevents double counting of overlapping evidence, e.g. "Legendary"
  * and "raid exclusive" both describe the same acquisition limitation).
  */
-export const SCORING_VERSION = "1.0.0";
-export const SCORING_EFFECTIVE_DATE = "2026-11-14";
+export const SCORING_VERSION = "1.1.0";
+export const SCORING_EFFECTIVE_DATE = "2026-11-19";
 
 export type FactorGroup =
   | "acquisition"

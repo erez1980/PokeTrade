@@ -47,6 +47,8 @@ export const PokemonForm = z.object({
   asset: z.string().optional(),
   /** Whether a Shiny version of this exact form is documented as released. */
   shiny: Tri,
+  /** Evidence record backing the Shiny status of this form (curated research). */
+  shinyEvidenceId: z.string().optional(),
   /** Event tag, for costumes ("HOLIDAY_2016") when known. */
   eventTag: z.string().optional(),
 });
@@ -111,6 +113,8 @@ export const EvidenceRecord = z.object({
   sourceId: z.string(),
   url: z.string().url().optional(),
   confidence: ConfidenceLevel,
+  /** Additional pages that state the same fact (cross-checks). */
+  alsoSeenIn: z.array(z.string().url()).optional(),
   /** ISO date range the evidence describes, or the "as of" date for snapshot data. */
   period: z.object({ from: z.string().optional(), to: z.string().optional(), asOf: z.string() }),
 });

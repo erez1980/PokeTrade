@@ -1,4 +1,4 @@
-# Rarity methodology (scoring v1.0.0, effective 2026-11-14)
+# Rarity methodology (scoring v1.1.0, effective 2026-11-19)
 
 The in-app page `/help` is generated from `src/domain/rarity/config.ts`; this document explains the reasoning. Any change to points, groups or thresholds **must** bump `SCORING_VERSION` and update this file.
 
@@ -63,9 +63,19 @@ A Lucky you *own* is scored as a variant (it can only come from a trade). This i
 
 When the game changes, `npm run data:update` rebuilds the catalog; scores re-evaluate automatically because they are computed from catalog facts at runtime. Curated facts live in `data/curation/evidence.json` and require a source per entry.
 
+## Estimated ranges (scoring v1.1)
+
+Unverified (not impossible) combinations get an **estimated range** instead of a blank: the minimum is the score without the unverified features, the maximum is the score if they are real. It is always labelled "estimated range · unverified", never enters the official rankings, and a comparison says "probably rarer" only when the two ranges do not overlap.
+
+## Curated research (2026-11-19)
+
+* **Backgrounds:** 84 backgrounds linked to 368 Pokémon (in-person: GO Fest, GO Tour, City Safari, Wild Area, WCS, Air Adventures, Road Trip; global special backgrounds). Each link has an evidence record with source URLs; in-person links required two independent sources (Dittobase + Serebii / LeekDuck).
+* **Costume Shiny:** 280 costume/event forms confirmed Shiny, 2 confirmed never Shiny (official posts, LeekDuck shiny data, Serebii).
+* Background pictures: 236 of 246 from game assets (PokeMiners pogo_assets).
+
 ## Known gaps (documented, not hidden)
 
-* No dataset reliably links backgrounds to species → all backgrounds are "unverified" until curated.
-* Shiny availability per costume / Shadow / Max is not in our sources → "unverified".
+* About 160 backgrounds (sports teams, stamp rallies, Poké Lids, National Trust, small local events) are not yet linked → estimated range only.
+* Shiny availability for Shadow / Max and a few costumes (clones, Armored Mewtwo) is not in our sources → estimated range only.
 * The released-species list (pogoapi.net) is a snapshot that can lag brand-new releases; a documented Shiny release also counts as release evidence, and `releasedOverrides` allows corrections.
 * Event re-release frequency is not modelled (no reliable machine-readable history).

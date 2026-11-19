@@ -74,3 +74,25 @@ describe("real catalog integrity", () => {
     expect(real.getSpecies(25)!.forms.filter((f) => f.kind === "costume").length).toBeGreaterThan(10);
   });
 });
+
+describe("curated research evidence", () => {
+  const real = realIndex();
+  it("every verified background link and curated form Shiny status points to a sourced evidence record", () => {
+    let links = 0;
+    for (const b of real.catalog.backgrounds) {
+      if (!b.verifiedSpecies.length) continue;
+      links += b.verifiedSpecies.length;
+      expect(b.evidenceIds?.length).toBeGreaterThan(0);
+      for (const id of b.evidenceIds!) expect(real.getEvidence(id)?.url).toMatch(/^https:\/\//);
+      for (const sid of b.verifiedSpecies) expect(real.getSpecies(sid)?.released).toBe(true);
+    }
+    expect(links).toBeGreaterThan(100);
+    for (const s of real.species) for (const f of s.forms) if (f.shinyEvidenceId) expect(real.getEvidence(f.shinyEvidenceId)?.url).toMatch(/^https:\/\//);
+  });
+  it("researched facts unlock real scores (e.g. Santa-hat Pikachu Shiny, Rayquaza with the GO Fest 2023 London background)", () => {
+    const santa = { ...defaultVariant(25, "PIKACHU_C_HOLIDAY_2016"), shiny: true };
+    expect(validateVariant(real, santa).status).toBe("available");
+    const ray = { ...defaultVariant(384, "RAYQUAZA_NORMAL"), backgroundId: "LC_2023_LONDON_GOFEST_001" };
+    expect(validateVariant(real, ray).status).toBe("available");
+  });
+});
