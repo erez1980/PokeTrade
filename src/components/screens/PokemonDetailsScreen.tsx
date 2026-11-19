@@ -8,6 +8,7 @@ import { useCatalog } from "../providers/CatalogProvider";
 import { useI18n } from "../providers/I18nProvider";
 import { CatalogGate } from "../States";
 import { PokemonImage } from "../PokemonImage";
+import { PokemonOnBackground } from "../PokemonOnBackground";
 import { ConfidenceBadge, Tag, TierBadge } from "../Badges";
 import { VariantConfigurator } from "../VariantConfigurator";
 import { SaveActions } from "../SaveActions";
@@ -56,7 +57,7 @@ function Inner({ id }: { id: number }) {
       <section className="card overflow-hidden">
         <div className="grid gap-4 bg-gradient-to-bl from-violet-100 via-white to-amber-50 p-5 sm:grid-cols-[auto_1fr]">
           <div className="flex justify-center">
-            <PokemonImage species={species} form={form} shiny={v.shiny} size={200} priority />
+            <PokemonOnBackground variant={v} size={200} priority />
           </div>
           <div>
             <p className="text-sm font-bold text-ink-soft"><bdi>#{String(species.id).padStart(4, "0")}</bdi> · {m.details.gen} {species.gen}</p>

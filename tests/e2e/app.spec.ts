@@ -44,12 +44,28 @@ test.describe("compare", () => {
     await expect(gmax).toHaveAttribute("aria-pressed", "false");
   });
 
-  test("unverified combinations show 'insufficient data' instead of a score", async ({ page }) => {
+  test("unverified combinations show an estimated range, never an official score", async ({ page }) => {
     await page.goto("/?a=" + encodeURIComponent("25|PIKACHU_C_HOLIDAY_2016|S||||||") + "&b=" + encodeURIComponent("16|PIDGEY_NORMAL|||||||"));
     await page.getByRole("button", { name: "השוואה!" }).click();
-    await expect(page.getByText("אי אפשר לקבוע בוודאות מי יותר נדיר.")).toBeVisible();
-    await expect(page.getByText("אין ציון").first()).toBeVisible();
-    await expect(page.getByRole("meter")).toHaveCount(0);
+    await expect(page.getByText("טווח משוער · לא מאומת").first()).toBeVisible();
+    await expect(page.locator("#result-title")).toContainText("(הערכה)");
+    await expect(page.getByText(/חלק מהתכונות עוד לא אומתו/)).toBeVisible();
+  });
+
+  test("background gallery shows pictures and puts the Pokémon on the background", async ({ page }) => {
+    await page.goto("/");
+    await pick(page, "הפוקימון שלי", "פיקאצו", /פיקאצ'ו/);
+    const panel = page.getByRole("region", { name: "הפוקימון שלי" });
+    await panel.getByRole("button", { name: /בחירת רקע|לחצו לבחירת רקע/ }).click();
+    const dialog = page.getByRole("dialog", { name: "בחירת רקע" });
+    await expect(dialog).toBeVisible();
+    await dialog.getByRole("tab", { name: "רקע מיקום" }).click();
+    await dialog.getByRole("searchbox").fill("לונדון");
+    const first = dialog.getByRole("button", { name: /לונדון/ }).first();
+    await expect(first.locator("img")).toHaveAttribute("src", /LocationCards\/.+\.png$/);
+    await first.click();
+    await expect(dialog).toHaveCount(0);
+    await expect(panel.locator('img[src*="LocationCards"]').first()).toBeVisible();
   });
 
   test("keyboard: search combobox with arrows + Enter", async ({ page }) => {

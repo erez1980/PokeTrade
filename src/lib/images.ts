@@ -17,3 +17,9 @@ export function formImage(species: PokemonSpecies, form: PokemonForm | undefined
   if (!form || form.kind === "normal" || !form.asset) return speciesArtwork(species.id, shiny);
   return `${GOAPI}/${form.asset}${shiny ? ".s" : ""}.icon.png`;
 }
+
+/** Background / location-card artwork (game asset), hot-linked from PokeMiners pogo_assets. */
+const BG_BASE = "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards";
+export function backgroundImage(image: string | undefined): string | null {
+  return image && /^[A-Za-z0-9_-]+$/.test(image) ? `${BG_BASE}/${image}.png` : null;
+}

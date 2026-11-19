@@ -31,6 +31,12 @@ export interface RarityResult {
   validation: VariantValidation;
   /** null when evidence is insufficient (never a fabricated number). */
   score: number | null;
+  /**
+   * For *unverified* (not impossible) combinations: the range the score would fall in.
+   * min = without the unverified features, max = if they are real. Always shown as an estimate
+   * and never used for the official rankings.
+   */
+  estimate: { min: number; max: number } | null;
   confidence: ResultConfidence;
   tier: TierId | null;
   factors: AppliedFactor[];
@@ -133,7 +139,8 @@ export function scoreVariant(idx: CatalogIndex, v: VariantConfig): RarityResult 
   const s = idx.getSpecies(v.speciesId);
   const fe = idx.getForm(v.formId);
   if (validation.status !== "available" || !s || !fe || !s.released) {
-    return { ...base, score: null, confidence: "insufficient", tier: null, factors: [] };
+    const estimate = validation.status === "unverified" && s && fe && s.released ? estimateRange(idx, v, validation) : null;
+    return { ...base, score: null, estimate, confidence: "insufficient", tier: null, factors: estimate && s && fe ? collectFactors(idx, s, fe.form, v) : [] };
   }
   const factors = collectFactors(idx, s, fe.form, v);
   const counted = factors.filter((f) => f.counted);
@@ -144,7 +151,30 @@ export function scoreVariant(idx: CatalogIndex, v: VariantConfig): RarityResult 
   if (!hasAcquisitionEvidence(s)) levels.push("low");
   const confidence = minConfidence(levels);
 
-  return { ...base, score, confidence, tier: tierFor(score), factors };
+  return { ...base, score, estimate: null, confidence, tier: tierFor(score), factors };
+}
+
+function rawScore(idx: CatalogIndex, v: VariantConfig): number {
+  const s = idx.getSpecies(v.speciesId)!;
+  const f = idx.getForm(v.formId)!.form;
+  const pts = collectFactors(idx, s, f, v).filter((x) => x.counted).reduce((n, x) => n + x.factor.points, 0);
+  return Math.max(SCORE_MIN, Math.min(SCORE_MAX, Math.round(pts)));
+}
+
+/** Score range for an unverified combination: [without unverified features, with them]. */
+function estimateRange(idx: CatalogIndex, v: VariantConfig, validation: VariantValidation): { min: number; max: number } {
+  const lower: VariantConfig = { ...v };
+  const species = idx.getSpecies(v.speciesId)!;
+  for (const p of validation.problems) {
+    if (p.attribute === "shiny") lower.shiny = false;
+    if (p.attribute === "background") lower.backgroundId = null;
+    if (p.attribute === "shadow" || p.attribute === "purified") lower.shadowState = "none";
+    if (p.attribute === "dynamax" || p.attribute === "gigantamax") lower.maxState = "none";
+    if (p.attribute === "form") lower.formId = idx.defaultForm(species).id;
+  }
+  const a = rawScore(idx, lower);
+  const b = rawScore(idx, v);
+  return { min: Math.min(a, b), max: Math.max(a, b) };
 }
 
 export type ComparisonOutcome =
@@ -153,6 +183,9 @@ export type ComparisonOutcome =
   | "equal"
   | "b_rarer"
   | "b_much_rarer"
+  /** At least one side is an estimate, but the ranges do not overlap. */
+  | "a_likely_rarer"
+  | "b_likely_rarer"
   | "insufficient";
 
 export interface ComparisonResult {
@@ -167,7 +200,15 @@ export interface ComparisonResult {
 
 export function compareResults(a: RarityResult, b: RarityResult, t: ComparisonThresholds = THRESHOLDS): ComparisonResult {
   if (a.score === null || b.score === null) {
-    return { a, b, outcome: "insufficient", diff: null, meterA: null };
+    const ra = a.score !== null ? { min: a.score, max: a.score } : a.estimate;
+    const rb = b.score !== null ? { min: b.score, max: b.score } : b.estimate;
+    if (!ra || !rb) return { a, b, outcome: "insufficient", diff: null, meterA: null };
+    const midA = (ra.min + ra.max) / 2;
+    const midB = (rb.min + rb.max) / 2;
+    const meterA = midA + midB === 0 ? 0.5 : midA / (midA + midB);
+    if (ra.min > rb.max) return { a, b, outcome: "a_likely_rarer", diff: null, meterA };
+    if (rb.min > ra.max) return { a, b, outcome: "b_likely_rarer", diff: null, meterA };
+    return { a, b, outcome: "insufficient", diff: null, meterA };
   }
   const diff = a.score - b.score;
   const low = a.confidence === "low" || b.confidence === "low";

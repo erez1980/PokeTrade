@@ -21,6 +21,22 @@ export function ScoreCard({ result, winner, label }: { result: RarityResult; win
             <ConfidenceBadge confidence={result.confidence} />
           </div>
         </>
+      ) : result.estimate ? (
+        <>
+          <p className="mt-1 font-black leading-none text-ink" aria-label={`${m.compare.estimateRange}: ${result.estimate.min}–${result.estimate.max}`}>
+            <span className="ltr text-4xl sm:text-5xl">{result.estimate.min === result.estimate.max ? result.estimate.min : `${result.estimate.min}–${result.estimate.max}`}</span>
+            <span className="ltr text-lg text-ink-soft">/100</span>
+          </p>
+          <p className="mt-1 text-[11px] font-semibold text-amber-700">{m.compare.estimateRange}</p>
+          <div className="mt-2 flex justify-center">
+            <span className="chip bg-amber-100 text-amber-900">{m.attrs.unverifiedTag}</span>
+          </div>
+          <ul className="mt-2 space-y-0.5 text-[11px] text-amber-800">
+            {result.validation.problems.map((p) => (
+              <li key={p.attribute + p.reason}>{m.reasons[p.reason]}</li>
+            ))}
+          </ul>
+        </>
       ) : (
         <>
           <p className="mt-2 text-2xl font-black text-slate-400">{m.compare.noScore}</p>

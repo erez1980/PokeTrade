@@ -20,6 +20,8 @@ export interface RankingEntry {
   key: string;
   variant: VariantConfig;
   score: number | null;
+  /** Estimated range for unverified variants (never ranked). */
+  estimate: { min: number; max: number } | null;
   confidence: ResultConfidence;
   tier: TierId | null;
   /** Competition rank ("1224" ranking): ties share a rank. null = unranked. */
@@ -112,6 +114,7 @@ export function buildRankings(idx: CatalogIndex, generatedAt: string): Rankings 
       key: variantKey(v),
       variant: v,
       score: r.score,
+      estimate: r.estimate,
       confidence: r.confidence,
       tier: r.tier,
       rank: null,
@@ -127,6 +130,7 @@ export function buildRankings(idx: CatalogIndex, generatedAt: string): Rankings 
       key: variantKey(v),
       variant: v,
       score: r.score,
+      estimate: r.estimate,
       confidence: r.confidence,
       tier: r.tier,
       rank: null,

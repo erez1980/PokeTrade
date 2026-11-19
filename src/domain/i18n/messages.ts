@@ -25,6 +25,7 @@ export const he = {
     meterNote: "המיקום על המד מחושב מהציונים בלבד ואינו אחוז או סיכוי אמיתי.",
     estimated: "הערכה",
     noScore: "אין ציון",
+    estimateRange: "טווח משוער · לא מאומת",
     reset: "ניקוי",
   },
   picker: {
@@ -138,7 +139,7 @@ export const he = {
     all: "הכל",
     tied: "תיקו",
     unranked: "לא מדורג / אין מספיק מידע",
-    unrankedNote: "גרסאות אמיתיות או אפשריות שעדיין אין לנו מספיק מידע מאומת כדי לדרג אותן.",
+    unrankedNote: "גרסאות שחלק מהתכונות שלהן עוד לא אומתו ממקור. מוצג להן טווח משוער, אבל הן לא נכנסות לדירוג הרשמי.",
     showMore: "להציג עוד",
     updated: "עודכן",
     empty: "אין עדיין גרסאות מדורגות בקטגוריה הזו.",
@@ -237,6 +238,7 @@ export const he = {
     privacyText: "אין הרשמה, אין מעקב מיקום, אין פרסומות ואין צ'אט. האוסף והמשאלות נשמרים רק אצלך במכשיר.",
   },
   types: { normal: "נורמלי", fire: "אש", water: "מים", grass: "עשב", electric: "חשמל", ice: "קרח", fighting: "לחימה", poison: "רעל", ground: "אדמה", flying: "מעופף", psychic: "על-חושי", bug: "חרק", rock: "סלע", ghost: "רוח רפאים", dragon: "דרקון", dark: "אופל", steel: "פלדה", fairy: "פיה" },
+  bg: { title: "בחירת רקע", search: "חיפוש רקע (עיר, אירוע, שנה)", choose: "לחצו לבחירת רקע", tabVerified: "אושרו לפוקימון הזה", verifiedFor: "אושר לפוקימון הזה", noneVerified: "עדיין לא אימתנו רקעים לפוקימון הזה. אפשר לבחור רקע מהרשימה – הציון יוצג כהערכה." },
   help: { title: "איך עובד דירוג הנדירות?" },
   notFound: "העמוד לא נמצא",
 };
@@ -269,6 +271,7 @@ export const en: Messages = {
     meterNote: "The meter position is derived from the scores only and is not a real percentage or probability.",
     estimated: "Estimate",
     noScore: "No score",
+    estimateRange: "Estimated range · unverified",
     reset: "Clear",
   },
   picker: {
@@ -382,7 +385,7 @@ export const en: Messages = {
     all: "All",
     tied: "Tie",
     unranked: "Unranked / Insufficient data",
-    unrankedNote: "Real or possible variants we don't yet have enough verified information to rank.",
+    unrankedNote: "Variants with features not yet verified by a source. They show an estimated range but are not officially ranked.",
     showMore: "Show more",
     updated: "Updated",
     empty: "No ranked variants in this category yet.",
@@ -481,6 +484,7 @@ export const en: Messages = {
     privacyText: "No sign-up, no location tracking, no ads and no chat. Your collection and wishlist stay on your device.",
   },
   types: { normal: "Normal", fire: "Fire", water: "Water", grass: "Grass", electric: "Electric", ice: "Ice", fighting: "Fighting", poison: "Poison", ground: "Ground", flying: "Flying", psychic: "Psychic", bug: "Bug", rock: "Rock", ghost: "Ghost", dragon: "Dragon", dark: "Dark", steel: "Steel", fairy: "Fairy" },
+  bg: { title: "Choose a background", search: "Search backgrounds (city, event, year)", choose: "Tap to choose a background", tabVerified: "Verified for this Pokémon", verifiedFor: "Verified for this Pokémon", noneVerified: "No backgrounds verified for this Pokémon yet. You can still pick one – the score will be an estimate." },
   help: { title: "How does rarity scoring work?" },
   notFound: "Page not found",
 };

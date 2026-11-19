@@ -50,6 +50,11 @@ export function joinList(items: string[], lang: Lang): string {
 
 /** One-sentence explanation for a single result. */
 export function explainSingle(r: RarityResult, name: string, lang: Lang): string {
+  if (r.score === null && r.estimate) {
+    return lang === "he"
+      ? `ל${name} יש ציון משוער של ${r.estimate.min}–${r.estimate.max}. חלק מהתכונות שבחרת עוד לא אומתו ממקור, ולכן זו הערכה.`
+      : `${name} has an estimated score of ${r.estimate.min}–${r.estimate.max}. Some selected features aren't verified by a source yet, so this is an estimate.`;
+  }
   if (r.score === null) {
     return lang === "he"
       ? "אין מספיק מידע כדי לקבוע את רמת הנדירות בצורה אמינה."
@@ -72,12 +77,29 @@ export const OUTCOME_HEADLINES: Record<ComparisonResult["outcome"], { he: string
   equal: { he: "שני הפוקימונים בערך באותה רמת נדירות!", en: "Both Pokémon are about equally rare!" },
   b_rarer: { he: "הפוקימון השני קצת יותר נדיר.", en: "The other Pokémon is a bit rarer." },
   b_much_rarer: { he: "הפוקימון השני נדיר בהרבה!", en: "The other Pokémon is much rarer!" },
+  a_likely_rarer: { he: "כנראה שהפוקימון שלך נדיר יותר! (הערכה)", en: "Your Pokémon is probably rarer! (estimate)" },
+  b_likely_rarer: { he: "כנראה שהפוקימון השני נדיר יותר. (הערכה)", en: "The other Pokémon is probably rarer. (estimate)" },
   insufficient: { he: "אי אפשר לקבוע בוודאות מי יותר נדיר.", en: "We can't tell for sure which one is rarer." },
 };
 
 /** Explanation of *why* the winner is rarer, focusing on factors the loser does not share. */
 export function explainComparison(c: ComparisonResult, nameA: string, nameB: string, lang: Lang): string {
+  if (c.outcome === "a_likely_rarer" || c.outcome === "b_likely_rarer") {
+    const aWins = c.outcome === "a_likely_rarer";
+    const w = aWins ? c.a : c.b;
+    const winnerName = aWins ? nameA : nameB;
+    const reasons = rarityReasons(w, lang);
+    const why = reasons.length ? (lang === "he" ? ` כי ${joinList(reasons, lang)}` : ` because ${joinList(reasons, lang)}`) : "";
+    return lang === "he"
+      ? `${winnerName} כנראה נדיר יותר${why}. חלק מהתכונות עוד לא אומתו, אבל גם בהערכה הכי נמוכה הוא עדיין מוביל.`
+      : `${winnerName} is probably rarer${why}. Some features aren't verified yet, but even in the lowest estimate it still leads.`;
+  }
   if (c.outcome === "insufficient") {
+    if (c.a.estimate || c.b.estimate) {
+      return lang === "he"
+        ? "הטווחים המשוערים של שני הפוקימונים חופפים, ולכן אי אפשר לדעת עדיין מי נדיר יותר. ברגע שנאמת את התכונות החסרות – נדע."
+        : "The estimated ranges overlap, so we can't tell yet which is rarer. Once the missing features are verified, we will.";
+    }
     const which = c.a.score === null && c.b.score === null ? "both" : c.a.score === null ? "a" : "b";
     if (lang === "he") {
       const who = which === "both" ? "על שני הפוקימונים" : `על ${which === "a" ? nameA : nameB}`;

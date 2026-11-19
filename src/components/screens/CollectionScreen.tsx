@@ -11,6 +11,7 @@ import { useStore } from "../providers/StoreProvider";
 import { useToast } from "../Toast";
 import { CatalogGate, EmptyState, PageTitle } from "../States";
 import { PokemonImage } from "../PokemonImage";
+import { PokemonOnBackground } from "../PokemonOnBackground";
 import { ConfidenceBadge, Tag } from "../Badges";
 import { IconCompare, IconDownload, IconEdit, IconLock, IconPlus, IconStar, IconStarFilled, IconTrash, IconUpload } from "../Icons";
 import { variantTags } from "@/lib/describe";
@@ -188,7 +189,7 @@ function Inner() {
               return (
                 <li key={c.id} className="card flex flex-col gap-2 p-3">
                   <div className="flex items-center gap-3">
-                    <PokemonImage species={s!} form={form} shiny={c.variant.shiny} size={72} />
+                    <PokemonOnBackground variant={c.variant} size={72} />
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-lg font-black">{c.nickname || s!.name[lang]}</p>
                       {c.nickname && <p className="truncate text-xs text-ink-soft">{s!.name[lang]}</p>}
@@ -203,7 +204,7 @@ function Inner() {
                     </button>
                   </div>
                   <div className="flex items-center justify-between gap-2 rounded-2xl bg-violet-50 px-3 py-1.5">
-                    <span className="text-sm font-bold">{r.score !== null ? <><span className="ltr">{r.score}</span>/100 <span className="text-[10px] text-ink-soft">{m.compare.estimated}</span></> : m.compare.noScore}</span>
+                    <span className="text-sm font-bold">{r.score !== null ? <><span className="ltr">{r.score}</span>/100 <span className="text-[10px] text-ink-soft">{m.compare.estimated}</span></> : r.estimate ? <><span className="ltr">{r.estimate.min}–{r.estimate.max}</span>/100 <span className="text-[10px] text-amber-700">{m.compare.estimateRange}</span></> : m.compare.noScore}</span>
                     <ConfidenceBadge confidence={r.confidence} />
                   </div>
                   {dups > 1 && <p className="text-[11px] font-semibold text-sky-700">{fmt(m.collection.duplicates, { n: dups })}</p>}

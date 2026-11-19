@@ -9,6 +9,7 @@ import { useToast } from "../Toast";
 import { CatalogGate, PageTitle } from "../States";
 import { PokemonPicker } from "../PokemonPicker";
 import { PokemonImage } from "../PokemonImage";
+import { PokemonOnBackground } from "../PokemonOnBackground";
 import { VariantConfigurator } from "../VariantConfigurator";
 import { TradeNotices } from "../TradeNotices";
 
@@ -91,7 +92,7 @@ function Inner() {
         ) : (
           <>
             <div className="flex items-center gap-3">
-              <PokemonImage species={species} form={idx.getForm(v.formId)?.form} shiny={v.shiny} size={96} />
+              <PokemonOnBackground variant={v} size={96} />
               <div>
                 <p className="text-2xl font-black">{species.name[lang]}</p>
                 <p className="ltr text-start text-sm text-ink-soft">#{species.id} · {species.name.en}</p>

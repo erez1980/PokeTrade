@@ -22,7 +22,7 @@ import { buildRankings } from "../../src/domain/rarity/rankings";
 import { SCORING_VERSION } from "../../src/domain/rarity/config";
 import { transliterateToHebrew } from "../../src/domain/search/transliterate";
 import { MANIFEST, RAW_DIR, UPSTREAM } from "./sources";
-import { FORM_NAME_OVERRIDES, hebrewForToken, humanizeToken, regionOf } from "./form-names";
+import { FORM_NAME_OVERRIDES, backgroundName, hebrewForToken, humanizeToken, regionOf } from "./form-names";
 
 const OUT_CATALOG = "public/data/catalog.json";
 const OUT_REPORT = "public/data/report.json";
@@ -139,17 +139,26 @@ function main() {
 
   // Backgrounds (location cards) from game master.
   const backgroundLinks: Record<string, number[]> = curatedEvidence.backgroundLinks.links;
-  const LOCATION_TOKENS = /(CITYSAFARI|SAFARI|GOFEST|GOTOUR|WILDAREA|WCS|WORLDS|LONDON|NYC|NEWYORK|MADRID|SENDAI|OSAKA|SEOUL|JEJU|BARCELONA|LASVEGAS|LOSANGELES|LA_|PARIS|TOKYO|TAIPEI|SINGAPORE|JAKARTA|SAOPAULO|MEXICO|BERLIN|AMSTERDAM|SYDNEY|HONGKONG|BANGKOK|MILAN|VALENCIA|BUENOSAIRES|SANTIAGO|MUMBAI|INCHEON|BUSAN|SEATTLE|FUKUOKA|NAGASAKI|TAINAN|HAWAII|HONOLULU|CANCUN|ANAHEIM|TAPEI|LIVE|AIRADVENTURES|CHENNAI|KAOHSIUNG)/;
+  const bgCurated: Record<string, { event?: string; dates?: string; allCaught?: boolean; evidenceIds?: string[] }> = curatedEvidence.backgroundLinks.meta ?? {};
   const backgrounds: PokemonBackground[] = gm
     .filter((e) => e.templateId.startsWith("LC_") && e.data?.locationCardSettings)
     .map((e) => {
       const id = String(e.templateId).replace(/[^A-Z0-9_]/g, "_");
-      const label = humanizeToken(id.replace(/^LC_/, "").replace(/_\d{3}$/, ""));
+      const settings = e.data.locationCardSettings;
+      const name = backgroundName(id);
+      const meta = bgCurated[id] ?? {};
+      const image = typeof settings.imageUrl === "string" && /^[A-Za-z0-9_-]+$/.test(settings.imageUrl) ? settings.imageUrl : undefined;
+      const special = settings.cardType === "SPECIAL_BACKGROUND" || /SPECIAL/.test(id) || (image ?? "").startsWith("sb_");
       return {
         id,
-        name: { en: label, he: hebrewForToken(id.replace(/^LC_/, "").replace(/_\d{3}$/, "")) || label },
-        kind: LOCATION_TOKENS.test(id) ? ("location" as const) : ("special" as const),
+        name: meta.event ? { en: meta.event, he: name.he } : name,
+        kind: special ? ("special" as const) : ("location" as const),
         verifiedSpecies: backgroundLinks[id] ?? [],
+        allCaught: meta.allCaught || undefined,
+        image,
+        year: Number(id.match(/(20\d\d)/)?.[1]) || undefined,
+        dates: meta.dates,
+        evidenceIds: meta.evidenceIds,
         source: "game-master",
       };
     })
@@ -331,6 +340,9 @@ function main() {
     { id: "EV.SHINY_RATES", description: { en: "Shiny rate categories (community research)", he: "קטגוריות סיכוי לשייני (מחקר קהילה)" }, sourceId: "curated-shiny-rates", confidence: "medium", period: { asOf: curatedEvidence._meta.updated } },
     { id: "EV.TRADING", description: { en: "Official trading rules", he: "חוקי ההחלפה הרשמיים" }, sourceId: "official-trading", confidence: "high", period: { asOf: "2026-11-14" } },
   ];
+  // Curated, source-backed evidence records (research results) – see data/curation/evidence.json.
+  for (const r of curatedEvidence.evidenceRecords ?? []) evidence.push(r);
+  for (const b of backgrounds) for (const id of b.evidenceIds ?? []) if (!evidence.some((e) => e.id === id)) errors.push(`background ${b.id} references unknown evidence ${id}`);
   for (const c of curatedEvidence.verifiedCombos) {
     if (!evidence.some((e) => e.id === c.evidenceId)) errors.push(`verifiedCombo references unknown evidence ${c.evidenceId}`);
   }

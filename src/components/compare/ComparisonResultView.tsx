@@ -23,7 +23,20 @@ export function ComparisonResultView({ a, b, aTraded, bTraded }: { a: VariantCon
   const nameB = variantLabel(idx, b, m, lang);
   const shortA = sa.name[lang];
   const shortB = sb.name[lang];
-  const winner = c.outcome === "a_much_rarer" || c.outcome === "a_rarer" ? "a" : c.outcome === "b_much_rarer" || c.outcome === "b_rarer" ? "b" : "tie";
+  const winner =
+    c.outcome === "a_much_rarer" || c.outcome === "a_rarer" || c.outcome === "a_likely_rarer"
+      ? "a"
+      : c.outcome === "b_much_rarer" || c.outcome === "b_rarer" || c.outcome === "b_likely_rarer"
+        ? "b"
+        : "tie";
+  const side = (r: typeof c.a) =>
+    r.score !== null
+      ? { score: r.score, label: String(r.score) }
+      : r.estimate
+        ? { score: (r.estimate.min + r.estimate.max) / 2, label: r.estimate.min === r.estimate.max ? `~${r.estimate.min}` : `${r.estimate.min}–${r.estimate.max}` }
+        : null;
+  const ma = side(c.a);
+  const mb = side(c.b);
   const headline = OUTCOME_HEADLINES[c.outcome][lang];
   const tone =
     c.outcome === "insufficient" ? "from-slate-200 to-slate-100" : winner === "a" ? "from-violet-500 to-sky-500 text-white" : winner === "b" ? "from-amber-400 to-yellow-300" : "from-emerald-400 to-teal-300";
@@ -33,7 +46,7 @@ export function ComparisonResultView({ a, b, aTraded, bTraded }: { a: VariantCon
       <div className={`bg-gradient-to-l ${tone} px-5 py-4 text-center`}>
         <p className="text-xs font-bold opacity-80">{m.compare.resultTitle}</p>
         <h2 id="result-title" className="flex items-center justify-center gap-2 text-2xl font-black sm:text-3xl">
-          {c.outcome !== "insufficient" && c.outcome !== "equal" && <IconSparkles />} {headline}
+          {winner !== "tie" && <IconSparkles />} {headline}
         </h2>
       </div>
       <div className="space-y-5 p-4 sm:p-6">
@@ -41,10 +54,10 @@ export function ComparisonResultView({ a, b, aTraded, bTraded }: { a: VariantCon
           <ScoreCard result={c.a} winner={winner === "a"} label={`${m.compare.mine}: ${shortA}`} />
           <ScoreCard result={c.b} winner={winner === "b"} label={`${m.compare.other}: ${shortB}`} />
         </div>
-        {c.meterA !== null && c.a.score !== null && c.b.score !== null && (
+        {c.meterA !== null && ma && mb && (
           <RarityMeter
-            a={{ species: sa, form: idx.getForm(a.formId)?.form, shiny: a.shiny, name: shortA, score: c.a.score }}
-            b={{ species: sb, form: idx.getForm(b.formId)?.form, shiny: b.shiny, name: shortB, score: c.b.score }}
+            a={{ species: sa, form: idx.getForm(a.formId)?.form, shiny: a.shiny, name: shortA, score: ma.score, label: ma.label }}
+            b={{ species: sb, form: idx.getForm(b.formId)?.form, shiny: b.shiny, name: shortB, score: mb.score, label: mb.label }}
             meterA={c.meterA}
             winner={winner}
           />

@@ -168,3 +168,35 @@ describe("rarity engine on the real catalog", () => {
     expect(variantKey(defaultVariant(25, "PIKACHU_NORMAL"))).toBe("25|PIKACHU_NORMAL|||||||");
   });
 });
+
+describe("estimated ranges for unverified combinations", () => {
+  it("gives an honest range (without → with the unverified feature) and still no official score", () => {
+    const r = scoreVariant(idx, v(3, { shiny: true }, "COSTUMED_C_HOLIDAY_2016"));
+    expect(r.score).toBeNull();
+    expect(r.confidence).toBe("insufficient");
+    const costumeOnly = scoreVariant(idx, v(3, {}, "COSTUMED_C_HOLIDAY_2016")).score!;
+    expect(r.estimate).toEqual({ min: costumeOnly, max: costumeOnly + FACTORS["SHINY.FULL_ODDS"]!.points });
+  });
+  it("gives no estimate for impossible or unreleased variants", () => {
+    expect(scoreVariant(idx, v(5, { lucky: true })).estimate).toBeNull();
+    expect(scoreVariant(idx, v(9)).estimate).toBeNull();
+    expect(scoreVariant(idx, v(2)).estimate).toBeNull();
+  });
+  it("says 'probably rarer' only when ranges do not overlap", () => {
+    const est = v(3, { shiny: true }, "COSTUMED_C_HOLIDAY_2016");
+    const low = compareVariants(idx, est, v(1)); // common nesting species is below the whole range
+    expect(low.outcome).toBe("a_likely_rarer");
+    expect(compareVariants(idx, v(1), est).outcome).toBe("b_likely_rarer");
+    const legend = compareVariants(idx, est, v(4)); // overlapping range
+    const r = scoreVariant(idx, est).estimate!;
+    const l = scoreVariant(idx, v(4)).score!;
+    expect(legend.outcome).toBe(l >= r.min && l <= r.max ? "insufficient" : l > r.max ? "b_likely_rarer" : "a_likely_rarer");
+    expect(explainComparison(low, "א", "ב", "he")).toContain("כנראה נדיר יותר");
+  });
+  it("unverified variants are listed with their range but never ranked", () => {
+    const r = buildRankings(idx, "x");
+    const un = r.variants.filter((e) => e.rank === null);
+    expect(un.some((e) => e.estimate !== null)).toBe(true);
+    expect(un.every((e) => e.score === null)).toBe(true);
+  });
+});

@@ -7,6 +7,7 @@ import { useCatalog } from "../providers/CatalogProvider";
 import { useI18n } from "../providers/I18nProvider";
 import { CatalogGate, EmptyState, PageTitle } from "../States";
 import { PokemonImage } from "../PokemonImage";
+import { PokemonOnBackground } from "../PokemonOnBackground";
 import { ConfidenceBadge, Tag, TierBadge } from "../Badges";
 import { IconCompare } from "../Icons";
 import { variantTags } from "@/lib/describe";
@@ -102,7 +103,11 @@ function Inner() {
                     <span className="block truncate text-sm font-bold">{s.name[lang]}</span>
                     <span className="block truncate text-xs text-ink-soft">{variantTags(idx, e.variant, m, lang).join(" · ")}</span>
                   </Link>
-                  <ConfidenceBadge confidence="insufficient" />
+                  {e.estimate ? (
+                    <span className="chip bg-amber-100 text-amber-900" title={m.compare.estimateRange}><span className="ltr">{e.estimate.min}–{e.estimate.max}</span></span>
+                  ) : (
+                    <ConfidenceBadge confidence="insufficient" />
+                  )}
                 </li>
               );
             })}
@@ -133,7 +138,7 @@ function RankingCard({ e, updated }: { e: RankingEntry; updated: string }) {
         <span className="ltr text-xl font-black">#{e.rank}</span>
         {e.tied && <span className="text-[10px] font-bold text-ink-soft">{m.rankings.tied}</span>}
       </div>
-      <PokemonImage species={s} form={f} shiny={e.variant.shiny} size={76} />
+      <PokemonOnBackground variant={e.variant} size={76} />
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">
           <Link href={`/pokemon/${s.id}/`} className="min-w-0">

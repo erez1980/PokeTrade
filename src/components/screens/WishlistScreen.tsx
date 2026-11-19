@@ -9,6 +9,7 @@ import { useStore } from "../providers/StoreProvider";
 import { useToast } from "../Toast";
 import { CatalogGate, EmptyState, PageTitle } from "../States";
 import { PokemonImage } from "../PokemonImage";
+import { PokemonOnBackground } from "../PokemonOnBackground";
 import { PokemonPicker } from "../PokemonPicker";
 import { VariantConfigurator } from "../VariantConfigurator";
 import { ConfidenceBadge, Tag, TierBadge } from "../Badges";
@@ -54,7 +55,7 @@ function Inner() {
           ) : (
             <>
               <div className="flex items-center gap-3">
-                <PokemonImage species={idx.getSpecies(draft.speciesId)!} form={idx.getForm(draft.formId)?.form} shiny={draft.shiny} size={72} />
+                <PokemonOnBackground variant={draft} size={72} />
                 <p className="text-xl font-black">{idx.getSpecies(draft.speciesId)!.name[lang]}</p>
                 <button className="btn btn-ghost ms-auto !min-h-9 !py-1 text-sm" onClick={() => setDraft(null)}>{m.picker.change}</button>
               </div>
@@ -92,7 +93,7 @@ function Inner() {
               return (
                 <li key={w.id} className="card flex flex-col gap-2 p-3">
                   <div className="flex items-center gap-3">
-                    <PokemonImage species={s!} form={idx.getForm(w.variant.formId)?.form} shiny={w.variant.shiny} size={72} />
+                    <PokemonOnBackground variant={w.variant} size={72} />
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-lg font-black">{s!.name[lang]}</p>
                       <div className="mt-1 flex flex-wrap gap-1">
@@ -103,7 +104,7 @@ function Inner() {
                     </div>
                   </div>
                   <div className="flex flex-wrap items-center gap-1 rounded-2xl bg-violet-50 px-3 py-1.5">
-                    <span className="text-sm font-bold">{r.score !== null ? <><span className="ltr">{r.score}</span>/100</> : m.compare.noScore}</span>
+                    <span className="text-sm font-bold">{r.score !== null ? <><span className="ltr">{r.score}</span>/100</> : r.estimate ? <><span className="ltr">{r.estimate.min}–{r.estimate.max}</span>/100 <span className="text-[10px] text-amber-700">{m.compare.estimateRange}</span></> : m.compare.noScore}</span>
                     <TierBadge tier={r.tier} />
                     <ConfidenceBadge confidence={r.confidence} />
                   </div>

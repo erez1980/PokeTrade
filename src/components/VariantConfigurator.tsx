@@ -5,6 +5,7 @@ import type { AttributeKey, VariantConfig } from "@/domain/catalog/variant";
 import type { PokemonForm } from "@/domain/catalog/schema";
 import { useCatalog } from "./providers/CatalogProvider";
 import { useI18n } from "./providers/I18nProvider";
+import { BackgroundPicker } from "./BackgroundPicker";
 
 interface Props {
   value: VariantConfig;
@@ -57,7 +58,6 @@ export function VariantConfigurator({ value, onChange, compact }: Props) {
     { label: m.attrs.costume, items: forms.filter((f) => f.kind === "costume") },
   ].filter((g) => g.items.length > 0);
   const currentForm = idx.getForm(value.formId)?.form;
-  const bgs = idx.catalog.backgrounds;
 
   return (
     <div className="space-y-3">
@@ -140,20 +140,7 @@ export function VariantConfigurator({ value, onChange, compact }: Props) {
           </select>
         </div>
         <div>
-          <label htmlFor={`${uid}-bg`} className="mb-1 block text-sm font-bold text-ink-soft">{m.attrs.background}</label>
-          <select id={`${uid}-bg`} className="input" value={value.backgroundId ?? ""} onChange={(e) => set({ ...value, backgroundId: e.target.value || null })}>
-            <option value="">{m.attrs.noBackground}</option>
-            <optgroup label={m.attrs.locationBackground}>
-              {bgs.filter((b) => b.kind === "location").map((b) => (
-                <option key={b.id} value={b.id}>{b.name[lang]}{b.verifiedSpecies.includes(species.id) ? "" : ` (${m.attrs.unverifiedTag})`}</option>
-              ))}
-            </optgroup>
-            <optgroup label={m.attrs.specialBackground}>
-              {bgs.filter((b) => b.kind === "special").map((b) => (
-                <option key={b.id} value={b.id}>{b.name[lang]}{b.verifiedSpecies.includes(species.id) ? "" : ` (${m.attrs.unverifiedTag})`}</option>
-              ))}
-            </optgroup>
-          </select>
+          <BackgroundPicker speciesId={species.id} value={value.backgroundId} onChange={(id) => set({ ...value, backgroundId: id })} />
           {value.backgroundId && avail.background.status !== "available" && (
             <p className="mt-1 text-xs font-semibold text-amber-700">{m.reasons[avail.background.reason]}</p>
           )}

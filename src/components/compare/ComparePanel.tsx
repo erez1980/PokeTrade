@@ -5,6 +5,7 @@ import { useCatalog } from "../providers/CatalogProvider";
 import { useI18n } from "../providers/I18nProvider";
 import { PokemonPicker } from "../PokemonPicker";
 import { PokemonImage } from "../PokemonImage";
+import { PokemonOnBackground } from "../PokemonOnBackground";
 import { VariantConfigurator } from "../VariantConfigurator";
 import { SaveActions } from "../SaveActions";
 import { Tag } from "../Badges";
@@ -34,7 +35,7 @@ export function ComparePanel({ title, accent, value, onChange }: Props) {
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className={`rounded-[2rem] bg-gradient-to-b p-1 ${value.shiny ? "from-amber-200 to-yellow-50" : "from-violet-100 to-white"}`}>
-              <PokemonImage species={species} form={form} shiny={value.shiny} size={112} priority />
+              <PokemonOnBackground variant={value} size={112} priority />
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-xs font-bold text-ink-soft ltr text-start">#{String(species.id).padStart(4, "0")}</p>

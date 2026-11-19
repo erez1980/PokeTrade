@@ -93,6 +93,14 @@ export const PokemonBackground = z.object({
   kind: z.enum(["location", "special"]),
   /** Species ids on which this background has been verified (curated). Empty = not verified for any species. */
   verifiedSpecies: z.array(z.number().int()),
+  /** The background applied to every Pokémon caught at the event (curated); species list is then non-exhaustive. */
+  allCaught: z.boolean().optional(),
+  /** Game asset name of the background picture (PokeMiners pogo_assets/Images/LocationCards). */
+  image: z.string().regex(/^[A-Za-z0-9_\-]+$/).optional(),
+  year: z.number().int().optional(),
+  /** Event dates (curated), e.g. "2024-06-14..2024-06-16". */
+  dates: z.string().optional(),
+  evidenceIds: z.array(z.string()).optional(),
   source: z.string(),
 });
 export type PokemonBackground = z.infer<typeof PokemonBackground>;
